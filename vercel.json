@@ -1,7 +1,7 @@
 {
-    "version": 2,
-    "routes": [
-      { "src": "/api/frame", "dest": "/api/frame.js" },
-      { "src": "/(.*)", "dest": "/index.html" }
-    ]
-  }
+  "version": 2,
+  "routes": [
+    { "src": "/api/frame", "dest": "/api/frame.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
