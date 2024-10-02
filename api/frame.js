@@ -38,7 +38,7 @@ export default function handler(req, res) {
           `<meta property="fc:frame:button:1" content="Back" />
            <meta property="fc:frame:button:2" content="Next" />`
         }
-        <meta property="fc:frame:post_url" content="https://your-vercel-app-url.vercel.app/api/frame" />
+        <meta property="fc:frame:post_url" content="https://test-frame-html.vercel.app/" />
         <meta property="fc:frame:state" content="${JSON.stringify({ index })}" />
     </head>
     <body>
