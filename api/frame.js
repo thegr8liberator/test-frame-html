@@ -39,7 +39,7 @@ export default function handler(req, res) {
       }
   
       html += `
-            <meta property="fc:frame:post_url" content="https://your-vercel-app-url.vercel.app/api/frame" />
+            <meta property="fc:frame:post_url" content="https://test-frame-html.vercel.app/" />
             <meta property="fc:frame:state" content="${JSON.stringify({ index: nextIndex })}" />
         </head>
         <body>
