@@ -1,23 +1,16 @@
-import { NextResponse } from 'next/server';
-
-export const config = {
-  runtime: 'edge',
-};
-
-export default async function handler(req) {
+module.exports = async (req, res) => {
   if (req.method !== 'POST') {
-    return new NextResponse('Method Not Allowed', { status: 405 });
+    return res.status(405).send('Method Not Allowed');
   }
 
   try {
-    const body = await req.json();
-
     const images = [
       'https://ipfs.io/ipfs/QmQLpsvzjsbjFGNbyS36kfBCsjhfWe4s9nD5gB6FH5DdAm',
       'https://ipfs.io/ipfs/QmTUCCubUb51wEWAhy7m64HSWHsTK3Wdnjp7UVrASHh1F1',
       'https://ipfs.io/ipfs/QmVwxEDWazmYrzhYW4WUEoaCoJUgbvo4h6HS2RnH3bXsas'
     ];
 
+    const body = req.body;
     const buttonIndex = body?.untrustedData?.buttonIndex || 1;
     let index = parseInt(body?.state?.index || '0');
 
@@ -55,12 +48,10 @@ export default async function handler(req) {
       </html>
     `;
 
-    return new NextResponse(html, {
-      status: 200,
-      headers: { 'Content-Type': 'text/html' },
-    });
+    res.setHeader('Content-Type', 'text/html');
+    return res.status(200).send(html);
   } catch (error) {
     console.error('Error in frame handler:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    return res.status(500).send('Internal Server Error');
   }
-}
+};
